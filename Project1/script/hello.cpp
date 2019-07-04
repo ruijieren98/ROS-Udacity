@@ -8,7 +8,7 @@ namespace gazebo
              {
                printf("Welcome to my world!\n");
              }
-    public : void Load(Physics::WorldPtr _world, sdf::ElementPtr _sdf)
+    public : void Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
              {
              }
   };
