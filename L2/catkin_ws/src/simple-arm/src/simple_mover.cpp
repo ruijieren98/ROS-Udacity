@@ -10,7 +10,7 @@ int main(int argc, char** argv)
   ros::NodeHandle n;
   
   // Create a publisher that can publish a std_msgs::Float64 message on the /simple_arm/joint_1_position_controller/command topic
-  ros::Publisher joint1_pub = n.advertise<std_msgs::Float64>("/simple_arm/joint_1_position_controller/command", 10);
+  ros::Publisher joint1_pub = n.advertise<std_msgs::Float64>("/simple_arm/joint_1_position_controller/command", 10)
 
   // Create a publisher that can publish a std_msgs::Float64 message on the /simple_arm/joint_1_position_controller/command topic
   ros::Publisher joint2_pub = n.advertise<std_msgs::Float64>("/simple_arm/joint_2_position_controller/command", 10);
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
     joint2_pub.publish(joint2_angle);
 
     // Sleep for the time remainint until 10HZ is reached
-    loop_rate.sleep();
+    loop_rate.sleep()
   }
 
   return 0;
