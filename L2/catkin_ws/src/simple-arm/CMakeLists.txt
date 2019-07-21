@@ -202,3 +202,7 @@ target_link_libraries(simple_mover ${catkin_LIBRARIES})
 add_dependencies(simple_mover simple_arm_generate_message_cpp)
 
 add_compile_options(-std=c++11)
+
+add_executable(arm_mover src/arm_mover.cpp)
+target_link_libraries(arm_mover ${catkin_LIBRARIES})
+add_dependencies(arm_mover simple_arm_generate_message_cpp)
