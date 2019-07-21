@@ -57,7 +57,15 @@ bool handle_safe_move_request(simple_arm::GoToPosition::Request& req, simple_arm
   joint2_angle.data = joint_angles[1];
 
 
+  joint1_pub.publish(joint1_angle);
+  joint2_pub.publish(joint2_angle);
 
+  // Wait 3 seconds for arm to settle
+  ros::Duration(3).sleep();
+
+  // Return a response message
+  res.msg_feedback = "Joint angle set - j1: " + std::to_string(joints_angles[0]) + " , j2: " + std::to_string(joints_angles[1]);
+  ROS_INFO_STREAM(res.msg_feedback);
 
 }
 
@@ -75,12 +83,11 @@ int main(int argc, char** argv)
 
   // Define a safe_move service with a handle_safe_move_request callback function
   ros::ServiceServer service = n.advertiseService("/arm_mover/safe_move", handle_safe_move_request);
-  ROS_INFO("Reafy to send joint commands");
+  ROS_INFO("Ready to send joint commands");
 
+  // Handle ROS communication events
+  ros::spin();
 
-
-
-
-
+  return 0;
 
 }
