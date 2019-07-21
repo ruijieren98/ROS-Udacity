@@ -5,7 +5,7 @@
 // Global joint publisher variables
 ros::Publisher joint1_pub, joint2_pub;
 
-// This function checks and clamps the joint angles to a sage zone
+// This function checks and clamps the joint angles to a safe zone
 std::vector<float> clamp_at_boundary(float requested_j1, float requested_j2)
 {
   // Define clamped joint angles and assign them to the requested node 
@@ -17,7 +17,7 @@ std::vector<float> clamp_at_boundary(float requested_j1, float requested_j2)
   // Assign a new node handle since we have no access to the main one
   ros::NodeHandle n2;
   // Get node name
-  std::string node_nam = ros::this_node::getName();
+  std::string node_name = ros::this_node::getName();
   // Get joints min and max parameters
   n2.getParam(node_name + "/min_joint_1_angle", min_j1);
   n2.getParam(node_name + "/max_joint_1_angle", max_j1);
@@ -44,7 +44,40 @@ std::vector<float> clamp_at_boundary(float requested_j1, float requested_j2)
 // This callback function executes whenever a safe_move service is requested
 bool handle_safe_move_request(simple_arm::GoToPosition::Request& req, simple_arm::GoToPosition::Response& res)
 {
-  ROS_INFO("GoToPositionRequest receiver - j1:%1.2f, j2:%1.2f, (float)req.joint_1, (float)req.joint_2);
+  ROS_INFO("GoToPositionRequest receiver - j1:%1.2f, j2:%1.2f", (float)req.joint_1, (float)req.joint_2);
+  
+  // Check if requested joint angle are in the safe zone, otherwise clamp them
+  std::vector<float> joint_angles = clamp_at_boundary(req.joint_1, req.joint_2);
+
+
+  // Publish clamped joint angles to the arm
+  std_msgs::Float64 joint1_angle, joint2_angle;
+
+  joint1_angle.data = joint_angles[0];
+  joint2_angle.data = joint_angles[1];
+
+
+
+
+}
+
+
+
+int main(int argc, char** argv)
+{
+  // Initialize the arm_mover node and create a handle to it
+  ros::init(argc, argv, "arm_mover");
+  ros::NodeHandle n;
+  
+  // Define two pulbishers to publish std_msgs::Float64 messages on joints respective topics
+  joint1_pub = n.advertise<std_msgs::Float64>("/simple_arm/joint_1_position_controller/command",10);
+  joint2_pub = n.advertise<std_msgs::Float64>("/simple_arm/joint_2_position_controller/command",10);
+
+  // Define a safe_move service with a handle_safe_move_request callback function
+  ros::ServiceServer service = n.advertiseService("/arm_mover/safe_move", handle_safe_move_request);
+  ROS_INFO("Reafy to send joint commands");
+
+
 
 
 
