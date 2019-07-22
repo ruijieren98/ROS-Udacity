@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/workspace/catkin_ws/src/simple-arm/src/simple_mover.cpp
+/home/workspace/ROS-Udacity/L2/catkin_ws/src/simple-arm/src/simple_mover.cpp
 ros/ros.h
-/home/workspace/catkin_ws/src/simple-arm/src/ros/ros.h
+/home/workspace/ROS-Udacity/L2/catkin_ws/src/simple-arm/src/ros/ros.h
 std_msgs/Float64.h
-/home/workspace/catkin_ws/src/simple-arm/src/std_msgs/Float64.h
+/home/workspace/ROS-Udacity/L2/catkin_ws/src/simple-arm/src/std_msgs/Float64.h
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h

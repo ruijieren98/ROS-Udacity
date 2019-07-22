@@ -25,12 +25,12 @@ std::vector<float> clamp_at_boundary(float requested_j1, float requested_j2)
   n2.getParam(node_name + "/max_joint_2_angle", max_j2);
 
   // Check if joint 1 falls in the safe zone, otherwise clamp it 
-  if (requsted_j1 < min_j1 || requsted_j1 > max_j1) {
+  if (requested_j1 < min_j1 || requested_j1 > max_j1) {
     clamped_j1 = std::min(std::max(requested_j1, min_j1), max_j1);
     ROS_WARN("j1 is out of bounds, valid range (%1.2f,%1.2f), clamping to %1.2f", min_j1, max_j1, clamped_j1);
   }
   // Check if joint 2 falls in the safe zone, otherwise clamp it 
-  if (requsted_j2 < min_j2 || requsted_j2 > max_j2) {
+  if (requested_j2 < min_j2 || requested_j2 > max_j2) {
     clamped_j2 = std::min(std::max(requested_j2, min_j2), max_j2);
     ROS_WARN("j2 is out of bounds, valid range (%1.2f,%1.2f), clamping to %1.2f", min_j2, max_j2, clamped_j2);
   }
@@ -64,7 +64,7 @@ bool handle_safe_move_request(simple_arm::GoToPosition::Request& req, simple_arm
   ros::Duration(3).sleep();
 
   // Return a response message
-  res.msg_feedback = "Joint angle set - j1: " + std::to_string(joints_angles[0]) + " , j2: " + std::to_string(joints_angles[1]);
+  res.msg_feedback = "Joint angle set - j1: " + std::to_string(joint_angles[0]) + " , j2: " + std::to_string(joint_angles[1]);
   ROS_INFO_STREAM(res.msg_feedback);
 
 }
