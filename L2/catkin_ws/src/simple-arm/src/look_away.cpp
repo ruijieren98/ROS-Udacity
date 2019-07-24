@@ -27,7 +27,7 @@ void move_arm_center()
 
 
 // This callback function continuously executes and reads the arm joint angles position
-void joint_state_callback(const sensor_msgs::JointState js)
+void joint_states_callback(const sensor_msgs::JointState js)
 {
   // Get joints current position
   std::vector<double> joints_current_position = js.position;
