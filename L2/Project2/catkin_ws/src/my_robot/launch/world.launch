@@ -35,4 +35,11 @@
 
   <!-- Launch rviz -->
   <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
+
+  <!-- Ball Chaser -->
+  <node name="drive_bot" pkg="ball_chaser" type="drive_bot" output="screen"/>
+  <node name="process_image" pkg="ball_chaser" type="process_image" output="screen"/>
+
+
 </launch>
+
