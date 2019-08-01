@@ -40,7 +40,7 @@ int main(int argc,char** argv)
   motor_command_publisher = n.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
 
   // Define a driver service 
-  ros::ServiceServer service = n.advertiseService("/ball_chaser/robot_driver", handle_driver_request);
+  ros::ServiceServer service = n.advertiseService("/ball_chaser/command_robot", handle_driver_request);
   ROS_INFO("Robot is ready to move, give move request ...");
 
   // Handle ROS communication events
