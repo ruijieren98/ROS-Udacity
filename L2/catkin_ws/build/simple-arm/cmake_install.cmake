@@ -1,8 +1,8 @@
-# Install script for directory: /home/workspace/catkin_ws/src/simple-arm
+# Install script for directory: /home/workspace/ROS-Udacity/L2/catkin_ws/src/simple-arm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/workspace/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/workspace/ROS-Udacity/L2/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,53 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/workspace/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_arm.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_arm/srv" TYPE FILE FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/src/simple-arm/srv/GoToPosition.srv")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_arm/cmake" TYPE FILE FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_arm-msg-paths.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/devel/include/simple_arm")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/devel/share/roseus/ros/simple_arm")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/devel/share/common-lisp/ros/simple_arm")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/devel/share/gennodejs/ros/simple_arm")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/workspace/ROS-Udacity/L2/catkin_ws/devel/lib/python2.7/dist-packages/simple_arm")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/devel/lib/python2.7/dist-packages/simple_arm")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_arm.pc")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_arm/cmake" TYPE FILE FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_arm-msg-extras.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_arm/cmake" TYPE FILE FILES
-    "/home/workspace/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_armConfig.cmake"
-    "/home/workspace/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_armConfig-version.cmake"
+    "/home/workspace/ROS-Udacity/L2/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_armConfig.cmake"
+    "/home/workspace/ROS-Udacity/L2/catkin_ws/build/simple-arm/catkin_generated/installspace/simple_armConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_arm" TYPE FILE FILES "/home/workspace/catkin_ws/src/simple-arm/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simple_arm" TYPE FILE FILES "/home/workspace/ROS-Udacity/L2/catkin_ws/src/simple-arm/package.xml")
 endif()
 
