@@ -10,7 +10,7 @@ void drive_robot(float lin_x, float ang_z)
 {
     // Request a service and pass the velocities to it to drive the robot
     ball_chaser::DriveToTarget service;
-    service.request.linera_x = lin_x;
+    service.request.linear_x = lin_x;
     service.request.angular_z = ang_z;
     // Call command_robot service
     if (!client.call(service)) {
@@ -34,7 +34,7 @@ void process_image_callback(const sensor_msgs::Image img)
     float v_x = 0.0; // linear_x speed
     float v_z = 0.0; // angular_z speed
     for (int i = 0; i < img.height * img.step; i += 2) {
-        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel {
+        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel) {
             is_ball_found = true;
             found_row = i % img.step;
             if (found_row = i < (img.step / 2)) {

@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD="/home/workspace/ROS-Udacity/L2/Project2/catkin_ws/build"
-export PYTHONPATH="/home/workspace/ROS-Udacity/L2/Project2/catkin_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
