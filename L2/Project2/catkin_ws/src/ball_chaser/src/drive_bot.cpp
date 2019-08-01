@@ -37,7 +37,7 @@ int main(int argc,char** argv)
   ros::NodeHandle n;
 
   // Inform ROS master that we will be publishing a message of type geometry::msgs::Twist on the robot actuating topic with a queue size 10
-  motor_command_publisher = n.advertise<geometry_msgs::Twist>("cmd/vel", 10);
+  motor_command_publisher = n.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
 
   // Define a driver service 
   ros::ServiceServer service = n.advertiseService("/ball_chaser/robot_driver", handle_driver_request);
