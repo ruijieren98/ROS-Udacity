@@ -33,16 +33,16 @@ void process_image_callback(const sensor_msgs::Image img)
     int found_row = 0;
     float v_x = 0.0; // linear_x speed
     float v_z = 0.0; // angular_z speed
-    for (int i = 0; i < img.height * img.step; i += 2) {
-        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel) {
+    for (int i = 0; i < img.height * img.step; i += 3) {
+        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
             is_ball_found = true;
             found_row = i % img.step;
-            if (found_row = i < (img.step / 2)) {
+            if (i < (img.step / 3)) {
                 // Turn left
                 v_x = 0.0;
                 v_z = 0.3;
             }
-            else if (found_row > img.step / 2)  {
+            else if (found_row > (img.step * 2 / 3))  {
                 // Trun right
                 v_x = 0.0;
                 v_z = 0.3;
