@@ -37,7 +37,7 @@ void process_image_callback(const sensor_msgs::Image img)
         if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
             is_ball_found = true;
             found_row = i % img.step;
-            if (i < (img.step / 3)) {
+            if (found_row < (img.step / 3)) {
                 // Turn left
                 v_x = 0.0;
                 v_z = 0.3;
@@ -45,7 +45,7 @@ void process_image_callback(const sensor_msgs::Image img)
             else if (found_row > (img.step * 2 / 3))  {
                 // Trun right
                 v_x = 0.0;
-                v_z = 0.3;
+                v_z = -0.3;
             }
             else {
                 // Go straight
