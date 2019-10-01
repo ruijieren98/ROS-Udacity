@@ -14,7 +14,7 @@ void drive_robot(float lin_x, float ang_z)
     service.request.angular_z = ang_z;
     // Call command_robot service
     if (!client.call(service)) {
-        ROS_ERROR("Failed to call service command_robot");
+      ROS_ERROR("Failed to call service command_robot");
     }
 }
 
@@ -22,38 +22,40 @@ void drive_robot(float lin_x, float ang_z)
 void process_image_callback(const sensor_msgs::Image img)
 {
 
+    int white_pixel = 255;
+
     // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
-
-    int white_pixel = 255;
+    
     bool is_ball_found = false;
-    float lin_x = 0;
-    float ang_z = 0;
+    int found_row = 0;
+    float v_x = 0.0; // linear_x speed
+    float v_z = 0.0; // angular_z speed
     for (int i = 0; i < img.height * img.step; i += 3) {
-	if (img.data[i] == white_pixel && img.data[i + 1] == white_pixel && img.data[i + 2] == white_pixel) {
-	    is_ball_found = true;
-	    int row_found = i % img.step;
-	    if (row_found < img.step / 3) {
-            // Turn Left
-            lin_x = 0.0;
-            ang_z = 0.2;
-	    }
-	    else if (row_found > img.step * 2 / 3) {
-            // Turn Right
-            lin_x = 0.0;
-            ang_z = -0.2;
-	    }
-	    else {
-            // Move Forward
-            lin_x = 0.5;
-    		ang_z = 0.0;
-	    }
-	        break;
+        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
+            is_ball_found = true;
+            found_row = i % img.step;
+            if (found_row < (img.step / 3)) {
+                // Turn left
+                v_x = 0.0;
+                v_z = 0.3;
+            }
+            else if (found_row > (img.step * 2 / 3))  {
+                // Trun right
+                v_x = 0.0;
+                v_z = -0.3;
+            }
+            else {
+                // Go straight
+                v_x = 0.4;
+                v_z = 0.0;
+            }
+            break;
         }
-    }	
-    drive_robot(lin_x, ang_z);
+    }
+    drive_robot(v_x, v_z);
 }
 
 int main(int argc, char** argv)

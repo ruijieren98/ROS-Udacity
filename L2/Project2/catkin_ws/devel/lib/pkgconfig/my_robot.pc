@@ -1,8 +1,8 @@
-prefix=/home/workspace/check/L2/Project2/catkin_ws/devel
+prefix=/home/workspace/ROS-Udacity/L2/Project2/catkin_ws/devel
 
 Name: my_robot
 Description: Description of my_robot
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/workspace/check/L2/Project2/catkin_ws/devel/lib 
+Libs: -L/home/workspace/ROS-Udacity/L2/Project2/catkin_ws/devel/lib 
 Requires: 
