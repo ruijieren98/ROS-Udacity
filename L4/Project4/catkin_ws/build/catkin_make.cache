@@ -1,0 +1,2 @@
+my_robot:rtabmap_ros:teleop_twist_keyboard
+-DCATKIN_DEVEL_PREFIX=/home/workspace/ROS-Udacity/L4/Project4/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/workspace/ROS-Udacity/L4/Project4/catkin_ws/install -G Unix Makefiles
