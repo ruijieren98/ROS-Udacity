@@ -1,3 +1,0 @@
-https://s3-us-west-1.amazonaws.com/udacity-robotics/hokuyo.dae
-
-https://s3-us-west-1.amazonaws.com/udacity-robotics/my_robot.gazebo
